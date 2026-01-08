@@ -13,7 +13,7 @@
 0x + 4y + z &= 2
 \end{align}
 
-Start with the first "pivot", the goal is to multiply the number and subtract from the below number(s) to turn it/them into 0. Here we multiply by 3 and subtract. Row 3, Col 1 is ignored since it's already 0.
+Start with the first **pivot**, the goal is to multiply the number and subtract from the below number(s) to turn it/them into 0. Here we multiply by 3 and subtract. Row 3, Col 1 is ignored since it's already 0.
 
 \begin{bmatrix}
 \underline{1} & 2 & 1 \\
@@ -27,7 +27,7 @@ Start with the first "pivot", the goal is to multiply the number and subtract fr
 2
 \end{bmatrix}
 
-Do the same with the second "pivot".
+Do the same with the second **pivot**.
 
 \begin{bmatrix}
 \underline{1} & 2 & 1 \\
@@ -41,7 +41,7 @@ Do the same with the second "pivot".
 2
 \end{bmatrix}
 
-And the third "pivot".
+And the third **pivot**.
 
 \begin{bmatrix}
 \underline{1} & 2 & 1 \\
@@ -58,7 +58,7 @@ And the third "pivot".
 - The above 3x3 matrix is known as U and the 3x1 vector is b
 - Rows can be swapped to avoid zero pivots which are not allowed
 
-From here it's possible to solve for x, y and z. This is known as Back Substitution.
+From here it's possible to solve for x, y and z. This is known as **Back Substitution**.
 
 $$
 \begin{align}
@@ -192,4 +192,139 @@ E_{32}
 \end{bmatrix}
 $$
 
-Matrix A * Matrix B is not the same as Matrix B * Matrix A
+### The entire problem in Matrix Notation
+
+$$
+E_{32}(E_{21}A) = U
+$$
+
+The order of the matricies cannot be changed but the order of multiplication can be.
+
+$$
+(E_{32}E_{21})A = U
+$$
+
+This is the Associative Law
+
+### Permutation
+
+Exchange rows 1 and 2.
+
+$$
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\qquad
+=
+\qquad
+\begin{bmatrix}
+c & d \\
+a & b
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\qquad
+=
+\qquad
+P
+$$
+
+What about exchanging columns?
+
+$$
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\qquad
+=
+\qquad
+\begin{bmatrix}
+b & a \\
+d & c
+\end{bmatrix}
+$$
+
+Note the Commutative Law doesn't apply.
+
+$$
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\qquad
+\neq
+\qquad
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+$$
+
+### Inverses
+
+Think about how to get from U to A.
+
+$$
+\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix}
+\qquad
+\begin{bmatrix}
+1 & 0 & 0 \\
+-3 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\qquad
+=
+\qquad
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix}
+\qquad
+=
+\qquad
+\begin{bmatrix}
+1 & 0 & 0 \\
+3 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
